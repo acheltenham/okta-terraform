@@ -30,7 +30,7 @@ jobs:
     - name: Terraform Init
       run: terraform init
       env:
-        OKTA_TOKEN: ${{ secrets.TF_OKTA_TOKEN }}
+        TF_OKTA_API_TOKEN: ${{ secrets.TF_OKTA_API_TOKEN }}
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
     # Checks that all Terraform configuration files adhere to a canonical format
@@ -41,7 +41,7 @@ jobs:
     - name: Terraform Plan
       run: terraform plan
       env:
-        OKTA_TOKEN: ${{ secrets.TF_OKTA_TOKEN }}
+        TF_OKTA_API_TOKEN: ${{ secrets.TF_OKTA_API_TOKEN }}
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
       # On push to main, build or change infrastructure according to Terraform configuration files
@@ -51,5 +51,5 @@ jobs:
       run: terraform apply -auto-approve
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-        OKTA_TOKEN: ${{ secrets.TF_OKTA_TOKEN }}
+        TF_OKTA_API_TOKEN: ${{ secrets.TF_OKTA_API_TOKEN }}
         
