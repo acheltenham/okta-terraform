@@ -17,3 +17,8 @@ resource "okta_group" "group_name_legal" {
   name        = "Legal OPs"
   description = "Legal OPs Group"
 }
+
+resource "okta_group" "group_name_support" {
+  name        = "Support"
+  description = "Support Team"
+}
