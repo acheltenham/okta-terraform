@@ -1,7 +1,7 @@
-resource "okta_policy_mfa" "security_team" {
-  name        = "Security Team"
+resource "okta_policy_mfa" "IT_team" {
+  name        = "IT Team"
   status      = "ACTIVE"
-  description = "Security Team MFA"
+  description = "IT Team MFA"
 
   okta_otp = {
     enroll = "OPTIONAL"
@@ -11,12 +11,12 @@ resource "okta_policy_mfa" "security_team" {
     enroll = "REQUIRED"
   }
 
-  groups_included = [okta_group.group_name_security.id]
+  groups_included = [okta_group.group_name_it.id]
 }
 
-resource "okta_policy_rule_mfa" "security_mfa_rule" {
-  policy_id = okta_policy_mfa.security_team.id
-  name      = "Security Team MFA"
+resource "okta_policy_rule_mfa" "it_mfa_rule" {
+  policy_id = okta_policy_mfa.IT_team.id
+  name      = "IT Team MFA"
   priority  = 1
   status    = "ACTIVE"
   enroll    = "LOGIN"
