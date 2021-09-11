@@ -13,3 +13,10 @@ provider "okta" {
   base_url  = "okta.com"
   api_token = var.okta_api_token
 }
+
+/*
+provider "google" {
+  project = var.project_id
+  region  = var.region
+}
+*/
