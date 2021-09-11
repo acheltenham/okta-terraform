@@ -19,6 +19,6 @@ resource "okta_group" "group_name_legal" {
 }
 
 resource "okta_group" "group_name_support" {
-  name = "Support"
+  name        = "Support"
   description = "Support Team"
 }
